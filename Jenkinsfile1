@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-               bat "docker build -t mca2341/2341_muziba ."
+               bat "docker build -t mca2341/2341_muzibanew ."
             }
         }
 
@@ -29,13 +29,13 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-               bat 'docker push mca2341/2341_muziba'
+               bat 'docker push mca2341/2341_muzibanew'
             }
         }
 
         stage('Run Docker container'){
         steps{
-            bat 'docker run -d --name my_container mca2341/2341_muziba .'
+            bat 'docker run -d --name my_container2 mca2341/2341_muzibanew .'
         }
         }
 
