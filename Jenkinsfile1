@@ -3,7 +3,7 @@ pipeline {
     agent any  
 
     environment {
-       PATH="C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
+       PATH = "C:\\Program Files\\Docker\\Docker\\Resources\\bin;${env.PATH}"
     }
 
     stages {
@@ -16,26 +16,26 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-               bat "docker build -t yutika01/simage ."
+               bat "docker build -t mca2341/2341_muziba ."
             }
         }
 
         stage('Docker Login') {
             steps {
-                bat 'docker login -u "mca.2349@unigoa.ac.in" -p "usingforjenkins" docker.io'
+                bat 'docker login -u "mca2341" -p "muzi@dock82" docker.io'
                 }
             }
         
 
         stage('Push Docker Image') {
             steps {
-               bat 'docker push yutika01/simage'
+               bat 'docker push mca2341/2341_muziba'
             }
         }
 
         stage('Run Docker container'){
         steps{
-            bat 'docker run -d --name cont2 yutika01/simage'
+            bat 'docker run -d --name my_container mca2341/2341_muziba .'
         }
         }
 
